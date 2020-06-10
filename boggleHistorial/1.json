@@ -1,0 +1,66 @@
+{
+    "nombre": "1",
+    "puntuacion_maxima": 1,
+    "puntuacion_acumulada": 1,
+    "partidas_jugadas": 1,
+    "partidas_ganadas": 1,
+    "partidas_perdidas": 0,
+    "partidas": [
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        },
+        {
+            "puntuacion": 1,
+            "fecha": "Sat May 23 20:13:38 CEST 2020"
+        }
+    ]
+}

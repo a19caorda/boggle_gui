@@ -1,4 +1,4 @@
-package juego;
+package application.boggle;
 
 import java.io.IOException;
 import java.util.ArrayList;

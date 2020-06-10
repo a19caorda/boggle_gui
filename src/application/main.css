@@ -10,7 +10,9 @@
 .container {
 	-fx-background-color: #ffc247;
 }
-
+.scrollpane {
+	-fx-background-color: transparent;
+}
 .scrollpane > .viewport {
 	-fx-background-color: transparent;
 }
@@ -24,7 +26,7 @@
 	-fx-text-fill: #e1e1dd;
 	-fx-text-alignment: center;
 	-fx-alignment: center;
-	-fx-font-size: 24px;
+	-fx-font-size: 32px;
 	-fx-text-overrun: ellipsis;
 }
 
@@ -42,25 +44,44 @@
 	-fx-background-color: #b783c8;
 	-fx-background-radius: 8px;
 	-fx-effect: dropshadow(three-pass-box, #b783c833, 16, 0, 0, 8);
+	-fx-font-size: 20px;
 }
 
 .playerDataTitle {
-	-fx-font-size: 16px;
+	-fx-font-size: 24px;
 	-fx-wrap-text: true ;
 	-fx-alignment: center;
+	-fx-font-weight: bold;
 	-fx-text-alignment: center;
 }
 
 .playerDataValue {
 	-fx-alignment: center;
-	-fx-font-size: 32px;
+	-fx-font-size: 52px;
 	-fx-font-weight: bolder;
 }
 
+.playerDataName {
+	-fx-font-size: 32px;
+	-fx-font-weight: bold;
+	-fx-text-fill: #e1e1dd;
+}
 
+.infoPartidaTitle {
+	-fx-font-size: 28px;
+	-fx-font-weight: bold;
+}
 
+.infoPartidaBtn {
+	-fx-font-size: 16px; 
+	-fx-font-weight: bold;
+	-fx-background-color: #b783c8;
+	-fx-background-radius: 8px;
+}
 
-
+.infoPartidaData {
+	-fx-font-size: 20px;
+}
 
 
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+
+<VBox alignment="CENTER" maxWidth="1.7976931348623157E308" onMouseClicked="#click" prefHeight="150.0" spacing="16.0" styleClass="player" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Circle fx:id="playerImg" fill="DODGERBLUE" radius="32.0" stroke="BLACK" strokeType="INSIDE">
+         <VBox.margin>
+            <Insets bottom="4.0" />
+         </VBox.margin>
+      </Circle>
+      <Label fx:id="playerName" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="playerName" text="David" textAlignment="CENTER">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

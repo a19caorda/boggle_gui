@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="container" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InfoPartidaController">
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" styleClass="infoPartidaTitle" text="Empezar a jugar" HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/arrow_back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="405.0" prefWidth="223.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" styleClass="infoPartidaData" text="Numero de jugadores" />
+            <Spinner fx:id="num_jugadores" maxWidth="1.7976931348623157E308" />
+            <Separator maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.0" prefHeight="16.0" prefWidth="0.0" />
+            <Label maxWidth="1.7976931348623157E308" styleClass="infoPartidaData" text="Numero de rondas" />
+            <Spinner fx:id="num_rondas" maxWidth="1.7976931348623157E308" />
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#next" prefHeight="36.0" prefWidth="238.0" styleClass="infoPartidaBtn" text="Introducir jugadores" BorderPane.alignment="CENTER" />
+   </bottom>
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+</BorderPane>

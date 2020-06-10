@@ -1,4 +1,4 @@
-package juego;
+package application.boggle;
 
 /**
  * Esta clase crea un cubilete de dados con las caras que salgan aleatoriamente

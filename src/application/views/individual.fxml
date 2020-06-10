@@ -7,16 +7,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="playerDataContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="playerDataContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="12.0">
          <children>
-            <Circle fill="DODGERBLUE" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Label maxWidth="1.7976931348623157E308" text="Label" HBox.hgrow="ALWAYS" />
+            <Circle fx:id="playerImg" fill="DODGERBLUE" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label fx:id="player_name" maxWidth="1.7976931348623157E308" styleClass="playerDataName" text="Jugador 1" HBox.hgrow="ALWAYS" />
             <VBox>
                <children>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="48.0" fitWidth="48.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/arrow_back_white.png" />
+                     </image></ImageView>
                </children>
             </VBox>
          </children>
@@ -27,52 +29,93 @@
             <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
          </padding>
       </HBox>
-      <GridPane gridLinesVisible="true" hgap="8.0" prefHeight="150.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <VBox.margin>
-            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
-         </VBox.margin>
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay">
+      <ScrollPane fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="scrollpane" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
-                  <Label styleClass="playerDataTitle" text="Puntuacion Max." />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="Label" VBox.vgrow="ALWAYS" />
+                  <GridPane hgap="8.0" prefHeight="150.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets bottom="8.0" top="8.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay">
+                           <children>
+                              <Label styleClass="playerDataTitle" text="Puntuacion Max.">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="punt_max" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="1">
+                           <children>
+                              <Label styleClass="playerDataTitle" text="Puntuacion Total">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="punt_total" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="2">
+                           <children>
+                              <Label styleClass="playerDataTitle" text="Partidas Jugadas">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="part_jugadas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="3">
+                           <children>
+                              <Label styleClass="playerDataTitle" text="Partidas Ganadas">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="part_ganadas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="4">
+                           <children>
+                              <Label styleClass="playerDataTitle" text="Partidas Perdidas">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="part_perdidas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <Label styleClass="playerDataName" text="Partidas">
+                     <VBox.margin>
+                        <Insets bottom="4.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox fx:id="list_partidas" prefHeight="15.0" prefWidth="766.0" spacing="12.0" styleClass="playerDataDisplay">
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </VBox>
                </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" />
+               </padding>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="1">
-               <children>
-                  <Label styleClass="playerDataTitle" text="Puntuacion Total" />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="Label" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="2">
-               <children>
-                  <Label styleClass="playerDataTitle" text="Partidas Jugadas" />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="Label" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="3">
-               <children>
-                  <Label styleClass="playerDataTitle" text="Partidas Ganadas" />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="Label" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="playerDataDisplay" GridPane.columnIndex="4">
-               <children>
-                  <Label styleClass="playerDataTitle" text="Partidas Perdidas" />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="playerDataValue" text="Label" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-         </children>
-      </GridPane>
+         </content>
+      </ScrollPane>
    </children>
 </VBox>

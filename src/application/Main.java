@@ -1,20 +1,19 @@
 package application;
 	
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			root.setCenter(new Label("Hola"));
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		  FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource("views/main.fxml") );
+		  
+			Scene scene = new Scene(fxmlLoader.load());
+			scene.getStylesheets().add(getClass().getResource("./main.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

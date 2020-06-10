@@ -1,4 +1,4 @@
-package juego;
+package application.boggle;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -107,6 +107,9 @@ public class Jugador {
 
   public File getHistorialArchivo() {
     return new File("boggleHistorial/" + nombre + ".json");
+  }
+  public File getImageArchivo() {
+    return new File("boggleImages/" + nombre + ".jpg");
   }
 
   /**
