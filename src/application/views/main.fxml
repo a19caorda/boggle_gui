@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="500.0" prefWidth="800.0" styleClass="container" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label styleClass="title" text="Boggle" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="24.0" />
+         </StackPane.margin></Label>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="32.0">
+         <children>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#play" styleClass="mainBtn" text="Jugar" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#history" styleClass="mainBtn" text="Historiales" />
+         </children>
+      </VBox>
+   </children>
+</StackPane>
