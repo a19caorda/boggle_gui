@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane prefHeight="500.0" prefWidth="800.0" styleClass="blackContainer" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" prefHeight="500.0" styleClass="scrollpane" vbarPolicy="ALWAYS">
+         <content>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0">
+               <children>
+                  <Label text="Ganador">
+                     <styleClass>
+                        <String fx:value="infoPartidaData" />
+                        <String fx:value="ganadoresTitles" />
+                     </styleClass>
+                  </Label>
+                  <GridPane fx:id="ganadoresGrid" alignment="CENTER" hgap="16.0" maxHeight="1.7976931348623157E308" vgap="16.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="296.0" prefWidth="296.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="296.0" prefWidth="296.0" />
+                    </columnConstraints>
+                     <VBox.margin>
+                        <Insets bottom="16.0" top="16.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <Label text="El resto de jugadores:">
+                     <styleClass>
+                        <String fx:value="infoPartidaData" />
+                        <String fx:value="ganadoresTitles" />
+                     </styleClass>
+                  </Label>
+                  <GridPane fx:id="playersGrid" alignment="CENTER" hgap="16.0" maxHeight="1.7976931348623157E308" vgap="16.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="293.0" prefWidth="293.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="293.0" prefWidth="293.0" />
+                    </columnConstraints>
+                     <VBox.margin>
+                        <Insets bottom="16.0" top="16.0" />
+                     </VBox.margin>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </StackPane.margin>
+         <image>
+            <Image url="@../images/close.png" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>

@@ -21,8 +21,7 @@ import java.util.Set;
  *
  */
 public class Partida {
-  // Atributos de la clase, el número de partidas creadas.
-  private static int MAXRONDAS = 5;
+
   private static int partidasCreadas = 0;
 
   // Atributos de la partida.
@@ -35,7 +34,7 @@ public class Partida {
    * @param jugadores Los jugadores que van a participar
    */
   public Partida(int numRondas, Jugador... jugadores) {
-    this.numRondas = Math.min(MAXRONDAS, numRondas);
+    this.numRondas = numRondas;
     this.jugadores = jugadores;
     partidasCreadas++;
   }
@@ -81,6 +80,35 @@ public class Partida {
 
     decideGanador();
 
+  }
+  
+  public ArrayList<Jugador> getGanadores() {
+    ArrayList<Jugador> ganadores = new ArrayList<>(); // Almacena la posición del jugador que tiene más
+    // puntuación
+    int aux = 0; // Almacena la puntuación máxima
+
+    // Bucle para leer la puntuación de los jugadores
+    for (int i = 0; i < this.jugadores.length; i++) {
+
+      // Si el jugador a leer tiene más puntuación
+      if (this.jugadores[i].getPuntuacion() > aux) {
+        ganadores.clear();
+        ganadores.add(this.jugadores[i]);
+        aux = this.jugadores[i].getPuntuacion();
+
+        // Si el jugador a leer tiene la misma puntuación
+      } else if (this.jugadores[i].getPuntuacion() == aux) {
+        ganadores.add(this.jugadores[i]);
+      }
+
+    }
+    for (Jugador ganador: ganadores) {
+      ganador.sumarPartidasGanadas();
+
+    }
+    
+    return ganadores;
+    
   }
 
   /**
@@ -178,6 +206,39 @@ public class Partida {
   }
 
   /**
+   * comprueba se encarga de comprobar que las palabras sean correctas y filtra
+   * las incorrectas.
+   * 
+   * @param aFiltrar La lista de palabras no filtradas
+   * @return La lista de palabras filtrada
+   */
+  public String comprueba(String palabraNoFiltrada) {
+
+    ArrayList<String> palabrasFiltradas = new ArrayList<>();
+
+
+      if (palabraNoFiltrada.length() < 3 || palabraNoFiltrada.length() > 23) {
+        return "";
+      }
+
+      palabraNoFiltrada = comprobarExistenciaPalabra(palabraNoFiltrada);
+
+      if (palabraNoFiltrada.isEmpty()) {
+        return "";
+      }
+      palabraNoFiltrada = comprobarMatrizBienFormada(palabraNoFiltrada);
+
+      if (palabraNoFiltrada.isEmpty()) {
+        return "";
+      }
+
+      palabrasFiltradas.add(palabraNoFiltrada);
+
+
+    return palabraNoFiltrada;
+  }
+  
+  /**
    * 
    * sumaPuntos se encarga de sumar los puntos de las palabras
    * 
@@ -214,6 +275,45 @@ public class Partida {
     }
 
     return resultadoFinal;
+  }  
+  
+  /**
+   * 
+   * sumaPuntos se encarga de sumar los puntos de las palabras
+   * 
+   * @param palabras La lista de palabras que ya ha sido filtrada
+   */
+  public void sumaPuntos(int jugador, Set<String> palabras) {
+
+    int resultadoFinal = 0;
+
+    for (String palabra : palabras) {
+      switch (palabra.length()) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+        break;
+      case 4:
+        resultadoFinal += 1;
+        break;
+      case 5:
+        resultadoFinal += 2;
+        break;
+      case 6:
+        resultadoFinal += 3;
+        break;
+      case 7:
+        resultadoFinal += 5;
+        break;
+      default:
+        resultadoFinal += 11;
+        break;
+      }
+    }
+
+    jugadores[jugador].sumaPuntuacion(resultadoFinal);
+    
   }
 
   /**
@@ -225,7 +325,7 @@ public class Partida {
    * @return Devulve la palabra si existe, en caso contrario, devuelve una
    *         {@link String} vacía
    */
-  private String comprobarExistenciaPalabra(String palabraAFiltrar) {
+  public String comprobarExistenciaPalabra(String palabraAFiltrar) {
 
     try {
       Process p = Runtime.getRuntime().exec("python raescript.py " + palabraAFiltrar);
@@ -253,7 +353,7 @@ public class Partida {
    * @return Devulve la palabra si está bien formada, en caso contrario, devuelve
    *         una {@link String} vacía
    */
-  private String comprobarMatrizBienFormada(String palabra) {
+  public String comprobarMatrizBienFormada(String palabra) {
     char[][] c = cubilete.caras;
     palabra = palabra.toUpperCase();
     String validador = "";
@@ -343,16 +443,38 @@ public class Partida {
 
   }
 
+  public int getJugadoresLength() {
+    return jugadores.length;
+  }
+
   public void guardarArchivo() throws IOException {
+    ArrayList<Jugador> ganadores = getGanadores();
     for (Jugador jugador : jugadores) {
-      jugador.guardarArchivo();
+      jugador.guardarArchivo(ganadores.contains(jugador));
     }
   }
 
   /**
+   * Devuelve las partidas creadas
+   * 
    * @return El número de partidas creadas
    */
   public static int getPartidasCreadas() {
     return partidasCreadas;
+  }
+
+  public void addWordToPlayer(int current_player, String text) {
+
+    jugadores[current_player].addWord(text);
+
+  }
+
+  public Jugador getJugador(int index) {
+    return jugadores[index];
+  }
+
+  public int getNumeroRondas() {
+    // TODO Auto-generated method stub
+    return numRondas;
   }
 }

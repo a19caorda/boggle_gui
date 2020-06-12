@@ -83,7 +83,23 @@
 	-fx-font-size: 20px;
 }
 
+.ganadoresTitles {
+	-fx-text-fill: #f7b42c;
+	-fx-font-weight: bolder;
+}
 
+.labelDice {
+	-fx-background-color: #fff;
+	-fx-background-radius: 8px;
+	-fx-font-weight: bolder;
+	-fx-font-size: 32px;
+	-fx-alignment: center;
+	-fx-max-height: 100000000;
+	-fx-max-width: 100000000;
+}
 
+.blackContainer {
+	-fx-background-color: #1e1e22;
+}
 
 

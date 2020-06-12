@@ -28,6 +28,7 @@ public class Jugador {
 
   //private final int TIEMPO_TURNO_SEC = 180;
   private int puntuacion = 0;
+  private Set<String> palabras;
 
   @Expose
   private String nombre;
@@ -97,6 +98,7 @@ public class Jugador {
   public void sumaPuntuacion(int puntuacion) {
     this.puntuacion += puntuacion;
   }
+  
 
   /**
    * @return la puntuacion del jugador
@@ -158,7 +160,7 @@ public class Jugador {
     partidas_ganadas++;
   }
 
-  void guardarArchivo() throws IOException {
+  public void guardarArchivo(boolean esGanador) throws IOException {
 
     File f = getHistorialArchivo();
     Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
@@ -168,7 +170,7 @@ public class Jugador {
 
       j.partidas_jugadas++;
       j.puntuacion_acumulada += puntuacion;
-      j.partidas_ganadas += partidas_ganadas;
+      j.partidas_ganadas += esGanador ? 1 : 0;
       j.partidas_perdidas = j.partidas_jugadas - j.partidas_ganadas;
       j.puntuacion_maxima = j.puntuacion_maxima > puntuacion ? j.puntuacion_maxima : puntuacion;
       
@@ -189,6 +191,7 @@ public class Jugador {
       partidas_jugadas = 1;
       puntuacion_acumulada = puntuacion;
       puntuacion_maxima = puntuacion;
+      partidas_ganadas = esGanador ? 1 : 0;
       partidas_perdidas = partidas_jugadas - partidas_ganadas;
 
       JsonObject j = new JsonObject();
@@ -210,6 +213,11 @@ public class Jugador {
   public String toString() {
 
     return this.nombre;
+  }
+
+  public void addWord(String text) {
+    if (palabras == null) palabras = new HashSet<>();
+    palabras.add(text);
   }
 
 }

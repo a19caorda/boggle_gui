@@ -13,7 +13,7 @@ public class MainController {
   void play(ActionEvent event) {
 
     try {
-      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/history.fxml"));
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/infoPartida.fxml"));
     
       ((Node)event.getSource()).getScene().setRoot(fxmlLoader.load());
     } catch (IOException e) {
