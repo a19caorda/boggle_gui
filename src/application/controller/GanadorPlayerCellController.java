@@ -13,11 +13,9 @@ import javafx.scene.shape.Circle;
 
 public class GanadorPlayerCellController {
 
-  private boolean esGanador;
   private Jugador jugador;
   
-  public GanadorPlayerCellController(Jugador jugador, boolean esGanador) {
-    this.esGanador = esGanador;
+  public GanadorPlayerCellController(Jugador jugador) {
     this.jugador = jugador;
   }
   

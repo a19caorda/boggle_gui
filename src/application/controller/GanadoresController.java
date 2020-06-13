@@ -43,7 +43,7 @@ public class GanadoresController {
       ArrayList<Jugador> ganadores = partida.getGanadores();
       for (int i = 0; i < ganadores.size(); i++) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/ganadoresPlayerCell.fxml"));
-        fxmlLoader.setController(new GanadorPlayerCellController(ganadores.get(i), true));
+        fxmlLoader.setController(new GanadorPlayerCellController(ganadores.get(i)));
         Node node = fxmlLoader.load();
         node.setStyle("-fx-background-color: #f7b42c; -fx-background-radius: 8px");
         if (i % 2 == 0 /* &&  i < partida.getJugadoresLength() - 1 */)
@@ -57,7 +57,7 @@ public class GanadoresController {
 
         if (!ganadores.contains(jugador)) {
           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/ganadoresPlayerCell.fxml"));
-          fxmlLoader.setController(new GanadorPlayerCellController(jugador, false));
+          fxmlLoader.setController(new GanadorPlayerCellController(jugador));
           Node node = fxmlLoader.load();
           node.setStyle("-fx-background-color: #b783c8; -fx-background-radius: 8px");
           if (j % 2 == 0 /* && i < partida.getJugadoresLength() - 1 */)
