@@ -51,7 +51,6 @@ public class GanadoresController {
         ganadoresGrid.add(node, i % 2, i / 2);
       }
 
-      ArrayList<Jugador> resto = new ArrayList<Jugador>(partida.getJugadoresLength() - ganadores.size());
       int j = 0;
       for (int i = 0; i < partida.getJugadoresLength(); i++) {
         Jugador jugador = partida.getJugador(i);
