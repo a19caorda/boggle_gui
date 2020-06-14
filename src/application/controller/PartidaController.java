@@ -16,6 +16,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * Esta clase es el controlador de la vista partida donde se controla el juego (la partida en sí)
+ * Tiene los siguientes métodos:
+ *  submitWord(KeyEvent event)
+ *  initialize()
+ *  millisToMinute(int millis)
+ *  siguienteTurno()
+ *  setData()
+ * @version 1.0
+ */
 public class PartidaController {
 
   Partida partida;
@@ -24,6 +34,10 @@ public class PartidaController {
 
   Set<String> validWordsSet = new HashSet<>();
 
+  /**
+   * Constructor de la clase
+   * @param partida la partida
+   */
   public PartidaController(Partida partida) {
     this.partida = partida;
   }
@@ -91,6 +105,11 @@ public class PartidaController {
   @FXML
   private GridPane dices;
 
+  /**
+   * Comprueba si la tecla pulsada es el enter y si lo es la añade a al jugador, la añade como un label a insertedWords y la valida,
+   * si es válida la añade a validWords como un label también, limpia el textfield para poder seguir poniendo palabras
+   * @param event pulsar una tecla
+   */
   @FXML
   void submitWord(KeyEvent event) {
     if (event.getCode() == KeyCode.ENTER) {
@@ -112,6 +131,9 @@ public class PartidaController {
     }
   }
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista, va poniendo el tiempo en su label e inicia el hilo
+   */
   @FXML
   void initialize() {
 
@@ -120,10 +142,18 @@ public class PartidaController {
 
   }
 
+  /**
+   * Sirve para pasar de milisegundos a minutos y segundos
+   * @param millis valor en milisegundos
+   * @return String - valor pasado a minutos y segundos
+   */
   String millisToMinute(int millis) {
     return String.format("%02d:%02d", millis / 60_000, millis / 1000 % 60);
   }
 
+  /**
+   * Pasa de jugador, teniendo en cuenta la ronda, llama a setData y limpia las palabras validas y las insertadas
+   */
   void siguienteTurno() {
 
     current_player = (current_player + 1) % partida.getJugadoresLength();
@@ -135,6 +165,9 @@ public class PartidaController {
 
   }
 
+  /**
+   * Cambia el nombre del jugador al del jugador actual, tira los dados para que sea un cubilete nuevo y los coloca en el grid de los dados
+   */
   private void setData() {
 
     playerName.setText(partida.getJugador(current_player).getNombre());

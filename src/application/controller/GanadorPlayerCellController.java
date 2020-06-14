@@ -11,10 +11,20 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+/**
+ * Esta clase es el controlador de la vista ganadoresPlayerCell crea la vista de la celda de los jugadores que ganan o que no ganan
+ * Tiene los siguientes métodos:
+ *  initialize()
+ * @version 1.0
+ */
 public class GanadorPlayerCellController {
 
   private Jugador jugador;
   
+  /**
+   * Constructor de la clase
+   * @param jugador un jugador
+   */
   public GanadorPlayerCellController(Jugador jugador) {
     this.jugador = jugador;
   }
@@ -31,6 +41,9 @@ public class GanadorPlayerCellController {
   @FXML
   private VBox container;
   
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista pone la imagen del jugador, su nombre y su puntuación en la celda
+   */
   @FXML
   void initialize() {
     

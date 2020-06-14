@@ -10,6 +10,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+/**
+ * Esta clase es otro controlador de la vista playerCell que carga el nombre y la imagen del jugador
+ * Tiene los siguientes métodos:
+ *  initialize()
+ * @version 1.0
+ */
 public class PlayerSelectController {
 
   Jugador player;
@@ -25,6 +31,10 @@ public class PlayerSelectController {
   @FXML
   void click(MouseEvent event) {}
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista, pone el nombre del jugador y la imagen asociada a ese jugador, si no tiene imagen se
+   * selecciona una por defecto
+   */
   @FXML
   void initialize() {
     try {

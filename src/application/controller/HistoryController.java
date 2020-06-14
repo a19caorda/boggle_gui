@@ -13,11 +13,23 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Esta clase es el controlador de la vista history crea los directorios necesarios si no existen, coge los json y crea un jugador por cada json que encuentra,
+ * se aplica la vista playerCell a cada jugador
+ * Tiene los siguientes métodos:
+ *  back(MouseEvent event)
+ *  initialize()
+ * @version 1.0
+ */
 public class HistoryController {
 
   @FXML
   private GridPane playerGrid;
 
+  /**
+   * Sirve para volver a la vista main desde la vista de historiales
+   * @param event click con el raton en la imagen
+   */
   @FXML
   void back(MouseEvent event) {
     try {
@@ -28,6 +40,10 @@ public class HistoryController {
     }
   }
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista crea los directorios necesarios si no existen, coge los json y crea un jugador por cada json que encuentra,
+   * se aplica la vista playerCell a cada jugador
+   */
   @FXML
   void initialize() {
     try {

@@ -24,6 +24,15 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
+/**
+ * Esta clase es el controlador de la vista addPlayers en la que se añaden los jugadores que van a jugar
+ * Tiene los siguientes métodos:
+ *  imgPlayer(ActionEvent event)
+ *  next(ActionEvent event)
+ *  initialize()
+ *  clearData()
+ * @version 1.0
+ */
 public class AddPlayersController {
 
   private int num_rondas;
@@ -31,6 +40,11 @@ public class AddPlayersController {
   private Jugador[] players;
   private ArrayList<Jugador> loaded_players;
 
+  /**
+   * Constructor de la clase
+   * @param num_rondas numero de rondas
+   * @param num_players numero de jugadores
+   */
   public AddPlayersController(int num_rondas, int num_players) {
     this.num_players = num_players;
     this.num_rondas = num_rondas;
@@ -49,6 +63,10 @@ public class AddPlayersController {
   private File imgPlayer;
   private int currentPlayer = -1;
 
+  /**
+   * Permite elegir la imagen que queremos en nuestro jugador
+   * @param event el evento de pulsar el botón
+   */
   @FXML
   void imgPlayer(ActionEvent event) {
 
@@ -59,6 +77,10 @@ public class AddPlayersController {
 
   }
 
+  /**
+   * Crea al jugador con los datos que hayamos puesto, o si hemos seleccionado alguno y pasa al siguiente jugador para que podamos elegirlo
+   * @param event el evento al crear un nuevo jugador con un botón o al seleccionar un jugador existente
+   */
   @FXML
   void next(ActionEvent event) {
 
@@ -78,6 +100,9 @@ public class AddPlayersController {
     }
   }
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista crea los directorios necesarios si no existen y comprueba si existen jugadores para poder ser seleccionados
+   */
   @FXML
   void initialize() {
 
@@ -107,6 +132,10 @@ public class AddPlayersController {
     clearData();
   }
 
+  /**
+   * Cambia de jugador al siguiente jugador, redimensiona el grid para que se vea bien, carga la vista de los jugadores dentro del grid,
+   * borra los datos del jugador ya seleccionado y crea la partida una vez los jugadores ya estén seleccionados
+   */
   void clearData() {
     try {
       currentPlayer++;
@@ -152,7 +181,6 @@ public class AddPlayersController {
         }
       }
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
 

@@ -21,10 +21,21 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+/**
+ * Esta clase es el controlador de la vista individual, carga los datos dentro de la vista del jugador en el historial
+ * Tiene los siguientes métodos:
+ *  back(MouseEvent event)
+ *  initialize()
+ * @version 1.0
+ */
 public class IndividualController {
 
   Jugador player;
 
+  /**
+   * Constructor de la clase
+   * @param player un jugador
+   */
   IndividualController(Jugador player) {
     this.player = player;
   }
@@ -56,6 +67,10 @@ public class IndividualController {
   @FXML
   private Label punt_total;
 
+  /**
+   * Sirve para volver a la vista historiales desde la vista del historial de un jugador
+   * @param event click con el raton en la imagen
+   */
   @FXML
   void back(MouseEvent event) {
     try {
@@ -68,6 +83,10 @@ public class IndividualController {
     ;
   }
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista, selecciona la foto del jugador si existe y si no le pone una default y pone todas las caracteristicas que tenga
+   * el jugador, p.ej: puntuaciones, partidas, etc
+   */
   @FXML
   void initialize() {
 

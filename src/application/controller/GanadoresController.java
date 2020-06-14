@@ -12,10 +12,22 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 
+/**
+ * Esta clase es el controlador de la vista ganadores en la que se dividen los jugadores en ganadores y en no ganadores y cada uno carga su vista y se coloca
+ * en diferentes grids
+ * Tiene los siguientes métodos:
+ *  close(MouseEvent event)
+ *  initialize()
+ * @version 1.0
+ */
 public class GanadoresController {
 
   Partida partida;
 
+  /**
+   * Constructor de la clase
+   * @param partida la partida jugada
+   */
   public GanadoresController(Partida partida) {
     this.partida = partida;
   }
@@ -26,6 +38,10 @@ public class GanadoresController {
   @FXML
   private GridPane playersGrid;
 
+  /**
+   * Sirve para volver a la vista main desde la vista de ganadores
+   * @param event click con el raton en la imagen
+   */
   @FXML
   void close(MouseEvent event) {
     try {
@@ -36,6 +52,10 @@ public class GanadoresController {
     }
   }
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista separa a los ganadores de los no ganadores y
+   * los carga dentro de la vista con sus respectivas vistas cada uno
+   */
   @FXML
   void initialize() {
     try {

@@ -14,10 +14,21 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+/**
+ * Esta clase es el controlador de la vista playerCell en la que si se hace click se carga la vista individual y carga el nombre y la imagen del jugador
+ * Tiene los siguientes métodos:
+ *  click(MouseEvent event)
+ *  initialize()
+ * @version 1.0
+ */
 public class PlayerCellController {
 
   Jugador player;
 
+  /**
+   * Constructor de la clase
+   * @param player un jugador
+   */
   PlayerCellController(Jugador player) {
     this.player = player;
   }
@@ -28,6 +39,10 @@ public class PlayerCellController {
   @FXML
   private Circle playerImg;
 
+  /**
+   * Carga la vista del jugador individual donde podemos ver sus estadisticas
+   * @param event hacer click en la celda
+   */
   @FXML
   void click(MouseEvent event) {
 
@@ -43,6 +58,10 @@ public class PlayerCellController {
 
   }
 
+  /**
+   * Método init del controlador, se ejecuta al cargar la vista, pone el nombre del jugador y la imagen asociada a ese jugador, si no tiene imagen se
+   * selecciona una por defecto
+   */
   @FXML
   void initialize() {
     try {

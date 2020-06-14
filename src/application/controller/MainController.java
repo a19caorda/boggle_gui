@@ -7,8 +7,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
+/**
+ * Esta clase es el controlador de la vista main donde podemos empezar a jugar o ver los historiales
+ * Tiene los siguientes métodos:
+ *  play(ActionEvent event)
+ *  history(ActionEvent event)
+ * @version 1.0
+ */
 public class MainController {
 
+  /**
+   * Carga la vista (donde configurar las rondas y los jugadores) para poder empezar a jugar
+   * @param event click con el raton en el boton
+   */
   @FXML
   void play(ActionEvent event) {
 
@@ -21,6 +32,10 @@ public class MainController {
     };  
   }
 
+  /**
+   * Carga la vista donde podemos ver los historiales
+   * @param event click con el raton en el boton
+   */
   @FXML
   void history(ActionEvent event) {
 
